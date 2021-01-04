@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
   <style>
+
+
+  :root {
+    /* Base color using HSL */
+    /* credit   https://gist.github.com/tunguskha/e4dceb7080bfeea486cd476e9631a413 */
+    --hue: 207;
+    --saturation: 64%;
+    --light: 44%;
+    
+    /* Base color in variable */
+    --primary-color: hsl(var(--hue), var(--saturation), var(--light));
+    /* Base color lighten using calc */
+    --primary-color-lighten: hsl(var(--hue), var(--saturation), calc(var(--light) + 10%));
+    /* Base color darken using calc */
+    --primary-color-darken: hsl(var(--hue), var(--saturation), calc(var(--light) - 10%));
+  }
+
+
   :root {
     --brand-bg-color: blue;
   }
 
   .title {
-    color: var(--brand-bg-color);
+    color: var(--primary-color);
   }
+
+  body {
+    background-color: var(--primary-color-lighten);
+  }
+
 
   </style>
 
 
-<body>
+<body cass>
   <h1 class="title">Branded Header with brand colour</h1>
 
   <p>Modern css allows you to create variables to hold the branding colours (or anything)
